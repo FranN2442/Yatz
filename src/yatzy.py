@@ -9,13 +9,16 @@ class Yatzy:
 
     @staticmethod
     def yatzy(*dice):
+        lista = []
         listaDados = list(dice)
-        p = 0
         for dado in dice:
-            if dado == listaDados[p]:
-                return True
-            else:
-                return False
+            for i in range(4):
+                if dado in listaDados[i]:
+                    lista.append(dado)
+                else:
+                    return 0 
+        if len(lista) == 5:
+            return 50 + 5 * listaDados[0]
 
     
     @staticmethod
