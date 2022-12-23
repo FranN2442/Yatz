@@ -1,1 +1,7 @@
-{}
+{
+  "test/test_fives.py::testfives": true,
+  "test/test_fours.py::test_fours": true,
+  "test/test_ones.py::test_sacarUnos": true,
+  "test/test_sixes.py::testSixes": true,
+  "test/test_threes.py::testThrees": true
+}

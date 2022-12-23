@@ -9,66 +9,24 @@ class Yatzy:
 
     @staticmethod
     def yatzy(*dice):
-        lista = []
-        listaDados = list(dice)
         for dado in dice:
-            for i in range(4):
-                if dado in listaDados[i]:
-                    lista.append(dado)
-                else:
-                    return 0 
-        if len(lista) == 5:
-            return 50 + 5 * listaDados[0]
+            if dice.count(dado) == 5:
+                return 50 + 5 * dado
+            else:
+                return 0 
+               
 
-    
     @staticmethod
-    def ones(*dice):
-        sumOnes = 0
+    def calcTopSide(*dice):
+        listaRes = []
         for dado in dice:
-            if dado == 1:
-                sumOnes += dado
-        return sumOnes
-    
+            multi = dice.count(dado)
+            res = dado * multi
+            if res not in listaRes:
+                listaRes.append(res)
+        return listaRes       
+            
     @staticmethod
-    def twos(*dice):
-        sumTwos = 0
-        for dado in dice:
-            if dado == 2:
-                sumTwos += dado
-        return sumTwos
-    
-    @staticmethod
-    def threes(*dice):
-        sumThrees = 0
-        for dado in dice:
-            if dado == 3:
-                sumThrees += dado
-        return sumThrees
-    
-    def fours(*dice):
-        sumFours = 0
-        for dado in dice: 
-            if dado == 4:
-                sumFours += dado 
-        return sumFours
-    
-
-    def fives(*dice):
-        sumFives = 0
-        for dado in dice: 
-            if dado == 5:
-                sumFives += dado 
-        return sumFives
-    
-
-    def sixes(*dice):
-        sumSixes = 0
-        for dado in dice: 
-            if dado == 6:
-                sumSixes += dado
-        return sumSixes
-    
-    
     def __init__(self, d1, d2, d3, d4, _5):
         self.dice = [0]*5
         self.dice[0] = d1
@@ -160,34 +118,7 @@ class Yatzy:
         return 0
 
     @staticmethod
-    def fullHouse( d1,  d2,  d3,  d4,  d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2): 
-                _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (tallies[i] == 3): 
-                _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
+    def fullHouse(*dice):
+        if Yatzy.score_pair(*dice) and Yatzy.three_of_a_kind(*dice):
+            return Yatzy.score_pair(*dice) + Yatzy.three_of_a_kind(*dice)
+        return 0

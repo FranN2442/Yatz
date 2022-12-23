@@ -1,8 +1,10 @@
 [
+  "test/test_calcAll.py::test_calcAll",
   "test/test_chance.py::test_chance",
   "test/test_fives.py::testfives",
   "test/test_four_of_a_kind.py::test_four_of_a_kind",
   "test/test_fours.py::test_fours",
+  "test/test_fullHouse.py::test_fullHouse",
   "test/test_largeStreight.py::test_largeStreight",
   "test/test_ones.py::test_sacarUnos",
   "test/test_pair.py::test_score_pair",
@@ -12,6 +14,7 @@
   "test/test_three_of_a_kind.py::test_three_of_a_kind",
   "test/test_threes.py::testThrees",
   "test/test_two_pairs.py::test_two_pair",
+  "test/test_yatzy.py::test_yatzy",
   "test_yatzy_from_scratch.py::test_chance",
   "test_yatzy_from_scratch.py::test_fours",
   "test_yatzy_from_scratch.py::test_ones",
